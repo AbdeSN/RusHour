@@ -6,11 +6,11 @@ public class Coordonate {
 	/**
 	 * X coordonate.
 	 */
-	public int X;
+	public int x;
 	/**
 	 * Y coordinate.
 	 */
-	public int Y;
+	public int y;
 
 	public int getY() {
 		// TODO - implement Coordonate.getY

@@ -1,16 +1,17 @@
 /**
  * Generate the game, with the grid and cars.
+ *
+ * @author TODO
+ * @version TODO
  */
 public class Game {
 
-	/**
-	 * Score of the player
-	 */
-	private int turn;
+    /** Player's score. */
+    private int turn;
 
-	public Game() {
-		// TODO - implement Game.Game
-		throw new UnsupportedOperationException();
-	}
-
+    /** TODO. */
+    public Game() {
+        // TODO - implement Game.Game
+        throw new UnsupportedOperationException();
+    }
 }

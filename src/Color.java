@@ -1,5 +1,9 @@
 /**
  * Enumeration of all kind of car color.
+ *
+ * @author TODO
+ * @version TODO
  */
-public class Color {
+public enum Color {
+    // TODO Values
 }

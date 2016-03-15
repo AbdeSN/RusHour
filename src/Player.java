@@ -1,5 +1,10 @@
+/**
+ * TODO.
+ *
+ * @author TODO
+ * @version TODO
+ */
 public class Player {
-
-	private String name;
-
+    /** TODO. */
+    private String name;
 }

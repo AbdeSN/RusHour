@@ -1,8 +1,11 @@
 /**
  * Generate the grid.
+ *
+ * @author TODO
+ * @version TODO
  */
 public class Grid {
-
+	// TODO Use better names!
 	/**
 	 * Lines number of the grid
 	 */
@@ -12,10 +15,19 @@ public class Grid {
 	 */
 	private int nbColumn;
 
+	/** TODO.
+	 *
+	 * @return TODO
+     */
 	public int getNbColumn() {
 		return this.nbColumn;
 	}
 
+	/**
+	 * TODO.
+	 *
+	 * @return TODO
+     */
 	public int getNbLine() {
 		return this.nbLine;
 	}

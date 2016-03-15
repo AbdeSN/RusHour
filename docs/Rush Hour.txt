@@ -1,0 +1,16 @@
+Rush Hour
+
+- 100% anglais
+- Javadoc et commentaires pour tout
+- Créer des classses/objet que si besoin a l'instant T
+- Evoluer assez entre les séances
+- Rythmes : 1 objectif entre chaque séance.
+
+
+Modélisation du jeux -> Représenter à un instant T tous les éléments du plateau de jeux
+Déroulement d'un seul tour
+
+Critère d'évalutation : 
+Compréhension du cours -> Réutilisation de tous les concepts du cours
+mark down
+toujours faire un pull avant la fin de sceance

@@ -1,8 +1,9 @@
+package fr.iutvalence.hassaineambry.rushhour;
 /**
  * Coordinates of the car in the grid.
  *
- * @author TODO
- * @version TODO
+ * @author HASSAINE Abderrahmane/AMBRY Maxime/TP1B
+ * @version v1.0
  */
 public class Coordinate {
 
@@ -11,16 +12,17 @@ public class Coordinate {
     /** Y coordinate. */
     public int y;
 
-    // TODO Simplify the names!
-    /** TODO. */
-    public int getY() {
+    public Coordinate(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
+	/** TODO. */
+    public int x() {
         // TODO - implement Coordonate.getY
         throw new UnsupportedOperationException();
     }
-
-    // TODO Simplify the names!
     /** TODO. */
-    public int getX() {
+    public int y() {
         // TODO - implement Coordonate.getX
         throw new UnsupportedOperationException();
     }

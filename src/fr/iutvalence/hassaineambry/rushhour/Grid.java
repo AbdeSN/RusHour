@@ -1,4 +1,8 @@
 package fr.iutvalence.hassaineambry.rushhour;
+
+import static fr.iutvalence.hassaineambry.rushhour.Color.ZERO;
+import static fr.iutvalence.hassaineambry.rushhour.Orientation.HORIZONTAL;
+
 /**
  * Generate the grid.
  *
@@ -8,6 +12,7 @@ package fr.iutvalence.hassaineambry.rushhour;
 public class Grid {
 	public static final int GRID_LINES = 6;
 	public static final int GRID_COLUMNS = 6;
+	public static final Car DEFAULT_CELL = new Car(new Coordinate(-1, -1), HORIZONTAL, 1, ZERO);
 	/**
 	 * Lines number of the grid
 	 */
@@ -17,27 +22,49 @@ public class Grid {
 	 */
 	private final int width;
 	
-	private final Cell[][] grid;
+	private final Car[][] grid;
 	
 	public Grid() {
 		height = GRID_LINES;
 		width = GRID_COLUMNS;
-		grid = new Cell[GRID_LINES][GRID_COLUMNS];
+		grid = new Car[GRID_LINES][GRID_COLUMNS];
+		
+	    for(int i = 0; i < GRID_LINES; i++)
+	    {
+	        for(int j = 0; j < GRID_COLUMNS; j++)
+	        {
+	            grid[i][j] = DEFAULT_CELL;
+	        }
+	    }
 	}
-	/** TODO.
-	 *
+	/** 
+	 * Get the number of columns
 	 * @return number of columns
      */
-	public int Column() {
+	public int width() {
 		return this.width;
 	}
 	/**
-	 * TODO.
-	 *
-	 * @return TODO
+	 * Get the number of lines
+	 * @return number of lines
      */
-	public int Line() {
+	public int height() {
 		return this.height;
 	}
-
+	
+	@Override
+	public String toString() {
+		
+	String represente = " ";
+	 for(int i = 0; i < GRID_LINES; i++)
+	    {
+	        for(int j = 0; j < GRID_COLUMNS; j++)
+	        {
+	        	represente += "|";
+	        }
+	        represente += "-";
+	    }
+		return represente;
+	}
+	
 }

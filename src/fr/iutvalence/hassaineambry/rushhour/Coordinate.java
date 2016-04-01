@@ -8,9 +8,9 @@ package fr.iutvalence.hassaineambry.rushhour;
 public class Coordinate {
 
     /** X coordinate. */
-    public int x;
+    public final int x;
     /** Y coordinate. */
-    public int y;
+    public final int y;
 
     public Coordinate(int x, int y) {
 		this.x = x;
@@ -26,4 +26,5 @@ public class Coordinate {
         // TODO - implement Coordonate.getX
         throw new UnsupportedOperationException();
     }
+    
 }

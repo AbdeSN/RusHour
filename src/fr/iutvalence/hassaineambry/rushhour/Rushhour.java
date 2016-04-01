@@ -5,6 +5,7 @@ package fr.iutvalence.hassaineambry.rushhour;
  * @author HASSAINE Abderrahmane/AMBRY Maxime/TP1B
  * @version v1.0
  */
+//main
 public class Rushhour {
     /**
      * TODO.
@@ -13,6 +14,6 @@ public class Rushhour {
      */
     public static void main(final String... args) {
         Game playGame = new Game();
-        System.out.println(playGame);
+        playGame.start();
     }
 }

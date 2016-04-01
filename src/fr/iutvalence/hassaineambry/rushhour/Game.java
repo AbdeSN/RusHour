@@ -1,8 +1,5 @@
 package fr.iutvalence.hassaineambry.rushhour;
 
-import static fr.iutvalence.hassaineambry.rushhour.Orientation.*;
-import static fr.iutvalence.hassaineambry.rushhour.Color.*;
-
 /**
  * Generate the game, with the grid and cars.
  *
@@ -12,15 +9,32 @@ import static fr.iutvalence.hassaineambry.rushhour.Color.*;
 public class Game {
 
     /** Player's score. */
+    private static int DEFAULT_TURN = 0;
+ 
     private int turn;
+    
+    /** 
+	 * Initialize the game. 
+	 */
+	public Game() {
+		this.turn = DEFAULT_TURN;
+    	Player player = new Player("Gelibert");
+    	
+    	Grid newGrid = new Grid();
+    	Level1 level1 = new Level1();
+    	// Car[] cars = level1.getCars();
+    	level1.getExit();
 
-    public int getTurn() {
-		return turn;
+		System.out.println(newGrid);
 	}
 
-	/** Initialize the game. */
-    public Game() {
-    	Grid newGrid = new Grid();
-    	Car newCar1 = new Car(new Coordinate(0, 1), HORIZONTAL, 3, GREEN);
-    }
+	public void start() {
+		/*while (Coordinate carCourant != Level1.getExit()) {
+			// TODO Auto-generated method stub
+		}*/
+		
+	}
+	
+
+
 }

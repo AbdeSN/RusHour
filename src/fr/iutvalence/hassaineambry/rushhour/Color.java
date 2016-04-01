@@ -20,8 +20,8 @@ public enum Color {
    YELLOW ("Y"),
    PINK ("P"),
    ORANGE ("O"),
-   WHITE ("W");
-   
+   WHITE ("W"),
+   ZERO ("Z");
    private String color = "";
    
    /**

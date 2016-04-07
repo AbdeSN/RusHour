@@ -4,13 +4,12 @@ package fr.iutvalence.hassaineambry.rushhour;
  * Generate the game, with the grid and cars.
  *
  * @author HASSAINE Abderrahmane/AMBRY Maxime/TP1B
- * @version v1.0
+ * @version 1.0
  */
 public class Game {
-
-    /** Player's score. */
+	/** TODO. */
     private static int DEFAULT_TURN = 0;
- 
+	/** TODO. */
     private int turn;
     
     /** 

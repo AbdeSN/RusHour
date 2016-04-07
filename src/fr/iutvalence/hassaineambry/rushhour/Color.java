@@ -1,46 +1,40 @@
 package fr.iutvalence.hassaineambry.rushhour;
+
 /**
  * Enumeration of all kind of car color.
  *
  * @author HASSAINE Abderrahmane/AMBRY Maxime/TP1B
- * @version v1.0
+ * @version 1.0
  */
-
-/**
- * Enumeration all of kind of colors.
- */
-
 public enum Color {
-	/**
-	 * Listing of colors.
-	 */
-   RED ("R"),
-   GREEN ("G"),
-   BLUE ("B"),
-   YELLOW ("Y"),
-   PINK ("P"),
-   ORANGE ("O"),
-   WHITE ("W"),
-   ZERO ("Z");
-   private String color = "";
-   
-   /**
-    * Constructor
-    */
-   Color(String color){
-	   this.color = color;
-   }
-   /**
-    * Method
-    */
-   public String toString(){
-	    return color;
-   }
-   /**
-    * Get the color
-    */
-   public String getColor() {
-	   return color;
-   }
+    /** TODO. */
+    RED("R"),
+    /** TODO. */
+    GREEN("G"),
+    /** TODO. */
+    BLUE("B"),
+    /** TODO. */
+    YELLOW("Y"),
+    /** TODO. */
+    PINK("P"),
+    /** TODO. */
+    ORANGE("O"),
+    /** TODO. */
+    WHITE("W"),
+    /** TODO. */
+    ZERO("Z");
+
+    /** TODO. */
+    private String color = "";
+
+    /** TODO. */
+    Color(String color) {
+        this.color = color;
+    }
+
+    @Override
+    public String toString() {
+        return color;
+    }
 }
 

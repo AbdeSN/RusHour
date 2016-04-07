@@ -1,22 +1,22 @@
 package fr.iutvalence.hassaineambry.rushhour;
+
 /**
- * Creation of a player for the score
+ * Creation of a player for the score.
  *
  * @author HASSAINE Abderrahmane/AMBRY Maxime/TP1B
- * @version v1.0
+ * @version 1.0
  */
 public class Player {
-    
+    /** TODO. */
     private final String name;
 
-	public Player(String name) {
-		this.name = name;
-	}
+    /** TODO. */
+    public Player(String name) {
+        this.name = name;
+    }
 
-	public String getName() {
-		return name;
-	}
-
-	
-    
+    /** TODO. */
+    public String getName() {
+        return name;
+    }
 }

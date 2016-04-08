@@ -14,6 +14,8 @@ public enum Color {
     /** TODO. */
     BLUE("B"),
     /** TODO. */
+    LIGHT_BLUE("LB"),
+    /** TODO. */
     YELLOW("Y"),
     /** TODO. */
     PINK("P"),

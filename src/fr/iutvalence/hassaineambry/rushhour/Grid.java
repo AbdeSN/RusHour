@@ -10,11 +10,11 @@ import static fr.iutvalence.hassaineambry.rushhour.Orientation.HORIZONTAL;
  * @version 1.0
  */
 public class Grid {
-    /** TODO. */
+    /** Height of the grid. */
     public static final int GRID_LINES   = 6;
-    /** TODO. */
+    /** Lenght of the grid. */
     public static final int GRID_COLUMNS = 6;
-    /** TODO. */
+    /** Default cell to initializing the grid. */
     public static final Car DEFAULT_CELL = new Car(new Coordinate(-1, -1), HORIZONTAL, 1, ZERO);
     /** Lines number of the grid. */
     private final int     height;
@@ -23,7 +23,7 @@ public class Grid {
     /** TODO. */
     private final Car[][] grid;
 
-    /** TODO. */
+    /** Create the grid. */
     public Grid() {
         height = GRID_LINES;
         width = GRID_COLUMNS;
@@ -46,16 +46,17 @@ public class Grid {
         return this.height;
     }
 
-    // TODO Use StringBuilder
+    
     @Override
     public String toString() {
-        String represente = " ";
+    	
+        StringBuilder represente = new StringBuilder (GRID_LINES + GRID_COLUMNS +1);
         for (int i = 0; i < GRID_LINES; i++) {
             for (int j = 0; j < GRID_COLUMNS; j++) {
-                represente += "|";
+                represente.append(grid [i][j]);
             }
-            represente += "-";
+            represente.append(System.getProperty("line.separator"));
         }
-        return represente;
+        return represente.toString();
     }
 }

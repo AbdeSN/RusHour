@@ -7,9 +7,9 @@ package fr.iutvalence.hassaineambry.rushhour;
  * @version 1.0
  */
 public class Game {
-	/** TODO. */
+	/** Default score. */
     private static int DEFAULT_TURN = 0;
-	/** TODO. */
+	/** Score. */
     private int turn;
     
     /** 
@@ -21,7 +21,7 @@ public class Game {
     	
     	Grid newGrid = new Grid();
     	Level1 level1 = new Level1();
-    	// Car[] cars = level1.getCars();
+    	// Car[] cars = Level1.getCars();
     	level1.getExit();
 
 		System.out.println(newGrid);

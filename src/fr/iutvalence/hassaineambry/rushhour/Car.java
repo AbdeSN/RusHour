@@ -73,10 +73,15 @@ public class Car {
     public void setCar(Car car)
 	{
 		this.car = car;
+	}
+
+
+	public Car getCar() {
+		// TODO Auto-generated method stub
+		return null;
 	} 
     
     
-    /**TODO method "toString"*/
     // public int Delta(){
         /*IF HORIZONTAL*/
 			/*IF coordonn�e.x + 1 != Z OR coordon�e.x + 1 >= 6*/

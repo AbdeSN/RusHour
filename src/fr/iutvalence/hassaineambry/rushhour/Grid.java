@@ -28,7 +28,7 @@ public abstract class Grid {
     private final int     width;
     /** Board fill of car. */
     private final Car[][] grid;
-    
+
 
     /** Create the grid. */
     public Grid() {
@@ -53,6 +53,7 @@ public abstract class Grid {
         return this.height;
     }
     
+
     /**
      * Creating cars
      */
@@ -73,7 +74,7 @@ public abstract class Grid {
      * @param coordinate 
      * @param car
      */
-    public void putcar(Coordinate coordinate, Car car) {
+    public void putCar(Coordinate coordinate, Car car) {
     	this.getGridCoord(coordinate).setCar(car);
 	}
      
@@ -82,7 +83,15 @@ public abstract class Grid {
      */
     public void moveCars() throws CarOutOfTheGridException, CarCollisionException, InvalidCoordinateException 
     {
-	    
+    	Car car = getGridCoord(null).getCar();
+	    if(car.orientation() == Orientation.HORIZONTAL) 
+	    {
+	    	
+	    }
+	    else
+	    {
+	    	
+	    }
     }
     /**
      * Print the grid

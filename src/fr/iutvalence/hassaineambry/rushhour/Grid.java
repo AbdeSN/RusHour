@@ -3,25 +3,36 @@ package fr.iutvalence.hassaineambry.rushhour;
 import static fr.iutvalence.hassaineambry.rushhour.Color.ZERO;
 import static fr.iutvalence.hassaineambry.rushhour.Orientation.HORIZONTAL;
 
+import java.util.List;
+
+import com.sun.org.apache.bcel.internal.generic.IfInstruction;
+
 /**
  * Generate the grid.
  *
  * @author HASSAINE Abderrahmane/AMBRY Maxime/TP1B
  * @version 1.0
  */
-public class Grid {
+public abstract class Grid {
     /** Height of the grid. */
     public static final int GRID_LINES   = 6;
     /** Lenght of the grid. */
     public static final int GRID_COLUMNS = 6;
     /** Default cell to initializing the grid. */
     public static final Car DEFAULT_CELL = new Car(new Coordinate(-1, -1), HORIZONTAL, 1, ZERO);
+   
+    
+    
     /** Lines number of the grid. */
     private final int     height;
     /** Columns number of the grid. */
     private final int     width;
-    /** TODO. */
+    /** Board fill of car. */
     private final Car[][] grid;
+    
+
+    
+    
 
     /** Create the grid. */
     public Grid() {
@@ -45,9 +56,33 @@ public class Grid {
     public int height() {
         return this.height;
     }
-
     
-    @Override
+    /**
+     * Creating cars
+     */
+    protected abstract List<Car> createCar();
+     
+     
+   /**
+    * Get the grid coordinates
+    */ 
+    public Car getCar(Coordinate coordinate)
+ 	{
+ 		return this.grid[coordinate.getX()][coordinate.getY()];
+ 	}
+
+    /**
+     * Put cars on the grid
+     */
+ 
+     
+    /**
+     * Move cars
+     */
+   
+    /**
+     * Print the grid
+     */
     public String toString() {
     	
         StringBuilder represente = new StringBuilder (GRID_LINES + GRID_COLUMNS +1);

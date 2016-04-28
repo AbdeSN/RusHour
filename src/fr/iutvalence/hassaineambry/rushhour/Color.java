@@ -7,30 +7,30 @@ package fr.iutvalence.hassaineambry.rushhour;
  * @version 1.0
  */
 public enum Color {
-    /** TODO. */
+    /** Red color. */
     RED("R"),
-    /** TODO. */
+    /** Green color. */
     GREEN("G"),
-    /** TODO. */
+    /** Blue color. */
     BLUE("B"),
-    /** TODO. */
+    /** Light blue color. */
     LIGHT_BLUE("LB"),
-    /** TODO. */
+    /** Yellow color. */
     YELLOW("Y"),
-    /** TODO. */
+    /** Pink color. */
     PINK("P"),
-    /** TODO. */
+    /** Orange color. */
     ORANGE("O"),
-    /** TODO. */
+    /** White color. */
     WHITE("W"),
-    /** TODO. */
+    /** Type of color to initalized the grid. */
     ZERO("Z");
 
-    /** TODO. */
+    /** String initialized empty. */
     private String color = "";
 
-    /** TODO. */
-    Color(String color) {
+    /** Print the letter of the color. */
+    private Color(String color) {
         this.color = color;
     }
 

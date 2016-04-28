@@ -18,19 +18,14 @@ public class Game {
 	public Game() {
 		this.turn = DEFAULT_TURN;
     	Player player = new Player("Gelibert");
-    	
-    	Grid newGrid = new Grid();
+
     	Level1 level1 = new Level1();
-    	// Car[] cars = Level1.getCars();
     	level1.getExit();
 
-		System.out.println(newGrid);
+		System.out.println();
 	}
 
 	public void start() {
-		/*while (Coordinate carCourant != Level1.getExit()) {
-			// TODO Auto-generated method stub
-		}*/
 		
 	}
 	

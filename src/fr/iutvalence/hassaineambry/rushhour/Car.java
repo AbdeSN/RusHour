@@ -14,15 +14,15 @@ public class Car {
     /** Size. */
     private final int         size;
     /** Coordinate. */
-    private       Coordinate  coordinate;
+    private Coordinate  coordinate;
 
     /**
-     * TODO.
+     * Create a car.
      *
-     * @param coordinate  TODO.
-     * @param orientation TODO.
-     * @param size        TODO.
-     * @param color       TODO.
+     * @param coordinate  coordinate.
+     * @param orientation orientation.
+     * @param size        size.
+     * @param color       color.
      */
     public Car(Coordinate coordinate, Orientation orientation, int size, Color color) {
         this.coordinate = coordinate;
@@ -31,24 +31,39 @@ public class Car {
         this.size = size;
     }
 
+
     /** Get the car size. */
     public int size() {
         return this.size;
     }
 
-    /** Get the car size. */
+    /** Get the car orientation. */
     public Orientation orientation() {
         return this.orientation;
     }
 
-    /** Get the color of size. */
+    /** Get the color of car. */
     public Color color() {
         return this.color;
     }
+    /** Get the car coordinate. */
+    public Coordinate coordinate() {
+		return coordinate;
+	}
 
-    public void setPosition(Coordinate coord) {
+    
+    
+    
+	public void setPosition(Coordinate coord) {
         this.coordinate = coord;
     }
+    
+    public String toString()
+	{
+		return this.color.toString();
+	}
+    
+    
     /**TODO method "toString"*/
     // public int Delta(){
         /*IF HORIZONTAL*/

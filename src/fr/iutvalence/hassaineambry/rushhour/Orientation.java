@@ -1,5 +1,5 @@
 package fr.iutvalence.hassaineambry.rushhour;
-// TODO This isn't an enumeration (look at my example in "Color").
+
 /**
  * Enumeration of the two orientations available (horizontal / vertical).
  *
@@ -7,6 +7,19 @@ package fr.iutvalence.hassaineambry.rushhour;
  * @version v1.0
  */
 public enum Orientation {
-	  HORIZONTAL,
-	  VERTICAL;
+	  HORIZONTAL("H"),
+	  VERTICAL("V");
+	  
+   /** TODO. */
+    private String orientation = "";
+
+    /** TODO. */
+    Orientation(String orientation) {
+        this.orientation = orientation;
+    }
+
+    @Override
+    public String toString() {
+        return orientation;
+    }
 }

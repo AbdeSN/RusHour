@@ -12,8 +12,21 @@ import java.util.List;
 * @author HASSAINE Abderrahmane/AMBRY Maxime/TP1B
 * @version 1.0
 */
-public class Level1 extends Grid implements Level 
+
+/**
+ * Creat the first level 
+ */
+public class Level1 extends Grid 
 {
+	/**
+	 * 
+	 */
+	public Level1() {
+		
+	}
+	/**
+	 * Creat a list of cars
+	 */
 	protected List<Car> createCar()
 	{
 		final List<Car> car = new LinkedList<>();
@@ -27,7 +40,9 @@ public class Level1 extends Grid implements Level
 		car.add(new Car(new Coordinate(5, 2), HORIZONTAL, 3, WHITE));
 		return car;
 	}
-	
+	/**
+	 * Get the exit coordinate
+	 */
     public Coordinate getExit() {
         Coordinate exitCoordinate = new Coordinate(2, 5);
 		return exitCoordinate;

@@ -7,15 +7,15 @@ package fr.iutvalence.hassaineambry.rushhour;
  * @version 1.0
  */
 public class Player {
-    /** TODO. */
+    /** Name of player. */
     private final String name;
 
-    /** TODO. */
+    /** Create a player. */
     public Player(String name) {
         this.name = name;
     }
 
-    /** TODO. */
+    /** Get the player name. */
     public String getName() {
         return name;
     }

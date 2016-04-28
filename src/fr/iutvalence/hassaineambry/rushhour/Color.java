@@ -23,7 +23,7 @@ public enum Color {
     ORANGE("O"),
     /** White color. */
     WHITE("W"),
-    /** Type of color to initalized the grid. */
+    /** Type of color to initialized the grid. */
     ZERO("Z");
 
     /** String initialized empty. */

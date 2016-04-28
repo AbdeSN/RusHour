@@ -16,17 +16,16 @@ public class Game {
 	 * Initialize the game. 
 	 */
 	public Game() {
+		// Generating the grid and cars on it
 		this.turn = DEFAULT_TURN;
     	Player player = new Player("Gelibert");
 
-    	Level1 level1 = new Level1();
-    	level1.getExit();
 
 		System.out.println();
 	}
 
 	public void start() {
-		
+		// Get the input from the player
 	}
 	
 

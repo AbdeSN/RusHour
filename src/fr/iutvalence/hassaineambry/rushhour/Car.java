@@ -15,6 +15,8 @@ public class Car {
     private final int         size;
     /** Coordinate. */
     private Coordinate  coordinate;
+    /** Car */
+    private Car car;
 
     /**
      * Create a car.
@@ -62,6 +64,16 @@ public class Car {
 	{
 		return this.color.toString();
 	}
+
+
+    /**
+     * Set a car on the grid
+     * @param car
+     */
+    public void setCar(Car car)
+	{
+		this.car = car;
+	} 
     
     
     /**TODO method "toString"*/

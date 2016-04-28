@@ -5,7 +5,6 @@ import static fr.iutvalence.hassaineambry.rushhour.Orientation.HORIZONTAL;
 
 import java.util.List;
 
-import com.sun.org.apache.bcel.internal.generic.IfInstruction;
 
 /**
  * Generate the grid.
@@ -29,9 +28,6 @@ public abstract class Grid {
     private final int     width;
     /** Board fill of car. */
     private final Car[][] grid;
-    
-
-    
     
 
     /** Create the grid. */
@@ -61,25 +57,33 @@ public abstract class Grid {
      * Creating cars
      */
     protected abstract List<Car> createCar();
-     
-     
+    
+
    /**
     * Get the grid coordinates
+    * @param coordinate
     */ 
-    public Car getCar(Coordinate coordinate)
+    public Car getGridCoord(Coordinate coordinate)
  	{
  		return this.grid[coordinate.getX()][coordinate.getY()];
  	}
 
     /**
      * Put cars on the grid
+     * @param coordinate 
+     * @param car
      */
- 
+    public void putcar(Coordinate coordinate, Car car) {
+    	this.getGridCoord(coordinate).setCar(car);
+	}
      
     /**
      * Move cars
      */
-   
+    public void moveCars() throws CarOutOfTheGridException, CarCollisionException, InvalidCoordinateException 
+    {
+	    
+    }
     /**
      * Print the grid
      */

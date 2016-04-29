@@ -11,7 +11,7 @@ public enum Orientation {
 	  VERTICAL("V");
 	  
    /** TODO. */
-    private String orientation = "";
+    private final String orientation;
 
     /** TODO. */
     Orientation(String orientation) {

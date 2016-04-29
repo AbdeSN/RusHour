@@ -27,7 +27,7 @@ public enum Color {
     ZERO("Z");
 
     /** String initialized empty. */
-    private String color = "";
+    private final String color;
 
     /** Print the letter of the color. */
     private Color(String color) {

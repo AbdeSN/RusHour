@@ -7,25 +7,32 @@ package fr.iutvalence.hassaineambry.rushhour;
  * @version 1.0
  */
 public class Game {
-	/** Default score. */
-    private static int DEFAULT_TURN = 0;
-	/** Score. */
-    private int turn;
     
     /** 
 	 * Initialize the game. 
+     * @param level 
+     * @param player2 
 	 */
-	public Game() {
+	public Game(Player player, Level level) {
 		// Generating the grid and cars on it
-		this.turn = DEFAULT_TURN;
-    	Player player = new Player("Gelibert");
-
-
+    	// Player player = new Player("Gelibert");
+		// Grid grid = new Grid(level);
+		
 		System.out.println();
 	}
 
 	public void start() {
-		// Get the input from the player
+		int turn = 0;
+		// Boucle infini tant que pas victoire
+		
+			// Get the input from the player
+			// int x = 0, y = 0;
+		    // Color color = RED;
+			
+			// Direction direction = BAS;
+			
+			// Demander à la Grid de déplacer "X" dans la direction indiquée.
+				// Si ça se passe mal, message.	
 	}
 	
 

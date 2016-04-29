@@ -15,8 +15,6 @@ public class Car {
     private final int         size;
     /** Coordinate. */
     private Coordinate  coordinate;
-    /** Car */
-    private Car car;
 
     /**
      * Create a car.
@@ -48,6 +46,7 @@ public class Car {
     public Color color() {
         return this.color;
     }
+    
     /** Get the car coordinate. */
     public Coordinate coordinate() {
 		return coordinate;
@@ -60,43 +59,10 @@ public class Car {
         this.coordinate = coord;
     }
     
+	@Override
     public String toString()
 	{
 		return this.color.toString();
 	}
-
-
-    /**
-     * Set a car on the grid
-     * @param car
-     */
-    public void setCar(Car car)
-	{
-		this.car = car;
-	}
-
-
-	public Car getCar() {
-		// TODO Auto-generated method stub
-		return null;
-	} 
-    
-    
-    // public int Delta(){
-        /*IF HORIZONTAL*/
-			/*IF coordonn�e.x + 1 != Z OR coordon�e.x + 1 >= 6*/
-    //Mouvement impossible (exception)
-    		/* ELSE RETURN coordon�e.x + 1*/
-			/*IF coordonn�e.x - 1 != Z OR coordon�e.x - 1 < 0*/
-    //Mouvement impossible (exception)
-    		/*ELSE RETURN coordon�e.x - 1*/
-    	
-    	/*IF VERTICAL*/
-			/*IF coordonn�e.y + 1 != Z OR coordon�e.y + 1 >= 6*/
-    //Mouvement impossible (exception)
-    		/* ELSE RETURN coordon�e.y + 1*/
-			/*IF coordonn�e.y - 1 != Z OR coordon�e.y - 1 < 0*/
-    //Mouvement impossible (exception)
-    		/*ELSE RETURN coordon�e.y - 1*/
-    //}
+   
 }

@@ -12,7 +12,7 @@ import java.util.List;
  * @author HASSAINE Abderrahmane/AMBRY Maxime/TP1B
  * @version 1.0
  */
-public abstract class Grid {
+public class Grid {
     /** Height of the grid. */
     public static final int GRID_LINES   = 6;
     /** Lenght of the grid. */
@@ -52,15 +52,9 @@ public abstract class Grid {
     public int height() {
         return this.height;
     }
-    
-
+  
+    // XXX
     /**
-     * Creating cars
-     */
-    protected abstract List<Car> createCar();
-    
-
-   /**
     * Get the grid coordinates
     * @param coordinate
     */ 
@@ -69,21 +63,24 @@ public abstract class Grid {
  		return this.grid[coordinate.getX()][coordinate.getY()];
  	}
 
+    // XXX
     /**
      * Put cars on the grid
      * @param coordinate 
      * @param car
      */
     public void putCar(Coordinate coordinate, Car car) {
-    	this.getGridCoord(coordinate).setCar(car);
+    	// XXX
+    	this.grid[coordinate.getX()][coordinate.getY()] = null;
 	}
      
+    // XXX
     /**
      * Move cars
      */
     public void moveCars() throws CarOutOfTheGridException, CarCollisionException, InvalidCoordinateException 
     {
-    	Car car = getGridCoord(null).getCar();
+    	/*Car car = getGridCoord(null).getCar();
 	    if(car.orientation() == Orientation.HORIZONTAL) 
 	    {
 	    	
@@ -91,11 +88,12 @@ public abstract class Grid {
 	    else
 	    {
 	    	
-	    }
+	    }*/
     }
     /**
      * Print the grid
      */
+    @Override
     public String toString() {
     	
         StringBuilder represente = new StringBuilder (GRID_LINES + GRID_COLUMNS +1);

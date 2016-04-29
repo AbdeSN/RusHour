@@ -14,20 +14,15 @@ import java.util.List;
 */
 
 /**
- * Creat the first level 
+ * Create the first level 
  */
-public class Level1 extends Grid 
+public class Level1 implements Level 
 {
 	/**
-	 * 
+	 * Create a list of cars
 	 */
-	public Level1() {
-		
-	}
-	/**
-	 * Creat a list of cars
-	 */
-	protected List<Car> createCar()
+	@Override
+	public List<Car> createCar()
 	{
 		final List<Car> car = new LinkedList<>();
 		car.add(new Car(new Coordinate(0, 1), HORIZONTAL, 3, GREEN));
@@ -40,10 +35,12 @@ public class Level1 extends Grid
 		car.add(new Car(new Coordinate(5, 2), HORIZONTAL, 3, WHITE));
 		return car;
 	}
+	
 	/**
 	 * Get the exit coordinate
 	 */
-    public Coordinate getExit() {
+    @Override
+	public Coordinate getExit() {
         Coordinate exitCoordinate = new Coordinate(2, 5);
 		return exitCoordinate;
     }

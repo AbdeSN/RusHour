@@ -1,5 +1,7 @@
 package fr.iutvalence.hassaineambry.rushhour;
 
 public class CarOutOfTheGridException extends Exception { 
-	/* NOTHING */
+	public CarOutOfTheGridException(String message) {
+		super(message);
+		}
 }

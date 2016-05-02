@@ -7,7 +7,7 @@ package fr.iutvalence.hassaineambry.rushhour;
  * @version 1.0
  */
 public class Game {
-    
+	private final Grid grid;
     /** 
 	 * Initialize the game. 
      * @param level 
@@ -16,25 +16,33 @@ public class Game {
 	public Game(Player player, Level level) {
 		// Generating the grid and cars on it
     	// Player player = new Player("Gelibert");
-		// Grid grid = new Grid(level);
 		
-		System.out.println();
+		
+		//Add a level in parameter 
+		grid = new Grid();
 	}
 
 	public void start() {
 		int turn = 0;
-		// Boucle infini tant que pas victoire
-		
+
+		while(!grid.victory())
+		{
+			turn++;
+			
 			// Get the input from the player
-			// int x = 0, y = 0;
-		    // Color color = RED;
+			Coordinate coord = getPlayerCoordinate();
 			
-			// Direction direction = BAS;
+			//Direction direction = getPlayerDirection();
 			
-			// Demander à la Grid de déplacer "X" dans la direction indiquée.
-				// Si ça se passe mal, message.	
+			//grid.moveCars(coord, direction);		
+		}
 	}
-	
 
+//	private Direction getPlayerDirection() {
+//		return DROITE;
+//	}
 
+	private Coordinate getPlayerCoordinate() {
+		return new Coordinate(0,0);
+	}
 }

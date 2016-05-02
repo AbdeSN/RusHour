@@ -53,8 +53,7 @@ public class Car {
 	}
 
     
-    
-    
+    /** Set the car position */
 	public void setPosition(Coordinate coord) {
         this.coordinate = coord;
     }

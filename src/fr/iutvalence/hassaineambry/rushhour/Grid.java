@@ -36,6 +36,7 @@ public class Grid {
         width = GRID_COLUMNS;
         grid = new Car[GRID_LINES][GRID_COLUMNS];
 
+        //Adding cars !!
         for (int i = 0; i < GRID_LINES; i++) {
             for (int j = 0; j < GRID_COLUMNS; j++) {
                 grid[i][j] = DEFAULT_CELL;
@@ -74,22 +75,63 @@ public class Grid {
     	this.grid[coordinate.getX()][coordinate.getY()] = null;
 	}
      
-    // XXX
     /**
-     * Move cars
+     * Move the car from a position to an other
+     * 
+     * @param initialCoords
+     * @param numberOfMovements
+     * @throws CarOutOfTheGridException
+     * @throws CarCollisionException
+     * @throws InvalidCoordinateException
      */
-    public void moveCars() throws CarOutOfTheGridException, CarCollisionException, InvalidCoordinateException 
+    public void moveCars(Coordinate initialCoords, Direction numberOfMovements) throws NoCarException, CarOutOfTheGridException, CarCollisionException, InvalidCoordinateException 
     {
-    	/*Car car = getGridCoord(null).getCar();
-	    if(car.orientation() == Orientation.HORIZONTAL) 
-	    {
-	    	
-	    }
-	    else
-	    {
-	    	
-	    }*/
+    	if (initialCoords.getX() > 5 || initialCoords.getY() > 5 || initialCoords.getX() < 0 || initialCoords.getX() < 0) 
+    		throw new InvalidCoordinateException("The coordinate must be between 0 et 5");
+    	
+    	Car car = getGridCoord(initialCoords);
+    	
+    	/** We're looking for a car */
+    	if (car == DEFAULT_CELL) throw new NoCarException ("Oops, no car here !");
+    	
+  
+    		/** We watch in what position is the car */
+    	    if(car.orientation() == Orientation.HORIZONTAL) 
+    	    {
+    	    	
+    	    	if (car.coordinate().getX() + 1 >= GRID_COLUMNS) throw new CarOutOfTheGridException("Where are you going ? You're out of the map !");
+    	    	
+    	    	if (car.coordinate().getX() == -1) throw new CarCollisionException("There is a car here !");
+    	    	
+    	    	for (int i = 0; i < grid.length; i++) {
+    				Coordinate newCoordinates = new Coordinate(car.coordinate().getX(), car.coordinate().getY());
+    				//Return newCoordinates 
+    			}
+    	    }
+    	    else
+    	    {
+    	    	if (car.coordinate().getX() + 1 >= GRID_LINES) throw new CarOutOfTheGridException("Where are you going ? You're out of the map !");
+    	    	
+    	    	if (car.coordinate().getX() == -1) throw new CarCollisionException("There is a car here !");
+    	    	
+    	    	for (int i = 0; i < grid.length; i++) {
+    				Coordinate newCoordinates = new Coordinate(car.coordinate().getX(), car.coordinate().getY());
+    				//Return newCoordinates
+    			}
+    	    }
+		
+    	
     }
+    
+    /**
+     * Victory
+     * @return
+     */
+    public boolean victory() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+    
     /**
      * Print the grid
      */

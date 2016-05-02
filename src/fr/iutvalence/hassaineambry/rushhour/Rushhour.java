@@ -21,7 +21,6 @@ public class Rushhour {
     	Scanner sc = new Scanner(System.in);
     	System.out.println("Please enter a name :");
     	String str = sc.nextLine();
-    	sc.close();
 
     	Player player = new Player(str);
     	System.out.println(player.getName());
@@ -29,10 +28,10 @@ public class Rushhour {
     	/**
     	 * Asking a level number
     	 */
-    	Scanner scLevel = new Scanner(System.in);
-    	System.out.println("Enter a level :");
-    	int lvl = scLevel.nextInt();
-    	scLevel.close();
+    	System.out.println("Enter a level (1):");   	
+    	int lvl = sc.nextInt();
+    	
+    	
     	if(lvl == 1)
     	{
     		Level level = new Level1();
@@ -40,5 +39,8 @@ public class Rushhour {
     		Game playGame = new Game(player, level);
     		playGame.start();
     	}
+    	
+    	sc.close();
+
     }
 }

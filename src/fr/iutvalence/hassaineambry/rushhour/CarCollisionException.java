@@ -1,5 +1,7 @@
 package fr.iutvalence.hassaineambry.rushhour;
 
 public class CarCollisionException extends Exception { 
-	/* NOTHING */
+	public CarCollisionException(String message) {
+		super(message);
+		}
 }

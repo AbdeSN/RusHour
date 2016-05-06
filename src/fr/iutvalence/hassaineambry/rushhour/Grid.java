@@ -30,8 +30,9 @@ public class Grid {
     private final Car[][] grid;
 
 
-    /** Create the grid. */
-    public Grid() {
+    /** Create the grid. 
+     * @param level */
+    public Grid(Level level) {
         height = GRID_LINES;
         width = GRID_COLUMNS;
         grid = new Car[GRID_LINES][GRID_COLUMNS];
@@ -44,7 +45,8 @@ public class Grid {
         }
     }
 
-    /** Get the number of columns. */
+
+	/** Get the number of columns. */
     public int width() {
         return this.width;
     }

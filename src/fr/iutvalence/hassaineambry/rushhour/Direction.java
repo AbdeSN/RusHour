@@ -1,7 +1,9 @@
 package fr.iutvalence.hassaineambry.rushhour;
 
 public class Direction {
-	public Direction() {
-		
+	public String direction;
+	
+	public Direction(String str) {
+		this.direction = str;
 	}
 }

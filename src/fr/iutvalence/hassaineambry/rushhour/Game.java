@@ -1,5 +1,7 @@
 package fr.iutvalence.hassaineambry.rushhour;
 
+import java.util.Scanner;
+
 /**
  * Generate the game, with the grid and cars.
  *
@@ -19,7 +21,8 @@ public class Game {
 		
 		
 		//Add a level in parameter 
-		grid = new Grid();
+		grid = new Grid(level);
+		grid.toString();
 	}
 
 	public void start() {
@@ -27,20 +30,45 @@ public class Game {
 
 		while(!grid.victory())
 		{
-			turn++;
+			turn+=1;
 			
 			// Get the input from the player
 			Coordinate coord = getPlayerCoordinate();
+	    	System.out.println(coord);
 			
-			//Direction direction = getPlayerDirection();
+			Direction direction = getPlayerDirection();
+	    	System.out.println(direction);
 			
 			//grid.moveCars(coord, direction);		
 		}
 	}
 
-//	private Direction getPlayerDirection() {
-//		return DROITE;
-//	}
+	public Direction getPlayerDirection() {
+		
+		/**
+		 * Asking a direction
+		 */
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Please enter a direction (T,B,L or R):");
+		String str = sc.nextLine();
+		sc.close();
+    	
+		switch (str) {
+		case "T":
+			Direction top = new Direction(str); 
+			return top;
+		case "B":
+			Direction bottom = new Direction(str); 
+			return bottom;
+		case "L":
+			Direction left = new Direction(str); 
+			return left;
+		case "R":
+			Direction right = new Direction(str); 
+			return right;
+		}
+		return null;
+	}
 
 	private Coordinate getPlayerCoordinate() {
 		return new Coordinate(0,0);

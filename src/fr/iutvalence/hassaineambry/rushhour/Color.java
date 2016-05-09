@@ -8,23 +8,23 @@ package fr.iutvalence.hassaineambry.rushhour;
  */
 public enum Color {
     /** Red color. */
-    RED("R"),
+    RED("R "),
     /** Green color. */
-    GREEN("G"),
+    GREEN("G "),
     /** Blue color. */
-    BLUE("B"),
+    BLUE("B "),
     /** Light blue color. */
-    LIGHT_BLUE("LB"),
+    LIGHT_BLUE("LB "),
     /** Yellow color. */
-    YELLOW("Y"),
+    YELLOW("Y "),
     /** Pink color. */
-    PINK("P"),
+    PINK("P "),
     /** Orange color. */
-    ORANGE("O"),
+    ORANGE("O "),
     /** White color. */
-    WHITE("W"),
+    WHITE("W "),
     /** Type of color to initialized the grid. */
-    ZERO("Z");
+    ZERO("Z ");
 
     /** String initialized empty. */
     private final String color;

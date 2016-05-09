@@ -22,7 +22,8 @@ public class Game {
 		
 		//Add a level in parameter 
 		grid = new Grid(level);
-		grid.toString();
+		//grid.putCar(coordinate, car);
+		System.out.println(grid.toString());
 	}
 
 	public void start() {
@@ -41,6 +42,9 @@ public class Game {
 			
 			//grid.moveCars(coord, direction);		
 		}
+		
+		
+		// public getPlayerCoordinate
 	}
 
 	public Direction getPlayerDirection() {

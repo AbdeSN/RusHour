@@ -1,5 +1,6 @@
 package fr.iutvalence.hassaineambry.rushhour;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -56,7 +57,13 @@ public class Game {
 		System.out.println("Please enter a direction (T,B,L or R):");
 		String str = sc.nextLine();
 		sc.close();
-    	
+		
+		try
+		{
+			str = sc.next();
+		} catch (InputMismatchException e)
+		{
+		}
 		switch (str) {
 		case "T":
 			Direction top = new Direction(str); 

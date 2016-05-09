@@ -129,9 +129,15 @@ public class Grid {
      * Victory
      * @return
      */
-    public boolean victory() {
-		// TODO Auto-generated method stub
+    public boolean victory(){
+    	/*while (true)
+		{
+    		if ((currentGrid.car(new Coordinate(2, 5)).getVehicle() != null)&& (currentGrid.car(new Coordinate(2, 5)).car.Color == Color.RED))
+			{
+				System.out.println("You win !");
+			}*/
 		return false;
+		
 	}
     
     /**

@@ -1,5 +1,6 @@
 package fr.iutvalence.hassaineambry.rushhour;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 /**
  * TODO.
@@ -29,8 +30,15 @@ public class Rushhour {
     	 * Asking a level number
     	 */
     	System.out.println("Enter a level (1):");   	
-    	int lvl = sc.nextInt();
-    	
+    	int lvl = 0;
+    	try {
+    		lvl = sc.nextInt();
+		} catch (InputMismatchException e) {
+			System.out.println("typing error");
+		}
+    	catch (NumberFormatException e) {
+			System.out.println("This level is not existing");
+		}
     	
     	if(lvl == 1)
     	{

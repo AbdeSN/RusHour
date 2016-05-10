@@ -14,8 +14,12 @@ public class Rushhour {
      * Initializing the game.
      *
      * @param args TODO
+     * @throws InvalidCoordinateException 
+     * @throws CarCollisionException 
+     * @throws CarOutOfTheGridException 
+     * @throws NoCarException 
      */
-    public static void main(final String[] args) {
+    public static void main(final String[] args) throws NoCarException, CarOutOfTheGridException, CarCollisionException, InvalidCoordinateException {
         /**
          * Asking a name
          */
@@ -24,20 +28,20 @@ public class Rushhour {
     	String str = sc.nextLine();
 
     	Player player = new Player(str);
-    	System.out.println(player.getName());
     	
     	/**
     	 * Asking a level number
     	 */
-    	System.out.println("Enter a level (1):");   	
+    	System.out.println("Enter a level (only 1 for now):");   	
     	int lvl = 0;
     	try {
     		lvl = sc.nextInt();
-		} catch (InputMismatchException e) {
+		} 
+    	catch (InputMismatchException e) {
 			System.out.println("typing error");
 		}
     	catch (NumberFormatException e) {
-			System.out.println("This level is not existing");
+			System.out.println("This level does not exist");
 		}
     	
     	if(lvl == 1)

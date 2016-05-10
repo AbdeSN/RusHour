@@ -3,6 +3,7 @@ package fr.iutvalence.hassaineambry.rushhour;
 import static fr.iutvalence.hassaineambry.rushhour.Color.ZERO;
 import static fr.iutvalence.hassaineambry.rushhour.Orientation.HORIZONTAL;
 
+import java.util.LinkedList;
 import java.util.List;
 
 
@@ -28,7 +29,7 @@ public class Grid {
     private final int     width;
     /** Board fill of car. */
     private final Car[][] grid;
-
+    private final Coordinate exit;
 
     /** Create the grid. 
      * @param level */
@@ -37,12 +38,37 @@ public class Grid {
         width = GRID_COLUMNS;
         grid = new Car[GRID_LINES][GRID_COLUMNS];
 
+        final List<Car> cars = level.createCar();
+        exit = level.getExit();
+        
         //Adding cars !!
         for (int i = 0; i < GRID_LINES; i++) {
             for (int j = 0; j < GRID_COLUMNS; j++) {
+            	for (int j2 = 0; j2 < cars.size(); j2++) {
+            		grid[i][j] = cars.get(j2);
+				}
                 grid[i][j] = DEFAULT_CELL;
             }
         }
+        
+        for (Car car : cars) {
+			Coordinate origin = car.coordinate();
+			Orientation orientation = car.orientation();
+			int size = car.size();
+			
+			if (orientation == Orientation.HORIZONTAL) {
+				for (int i = origin.getX(); i < origin.getX() + size; i++) {
+					//Si taille egale 2 alors afficher a coordonée et coordonée + 1 
+				}
+			}
+			else {
+				for (int j = origin.getY(); j < origin.getY() + size; j++) {
+					
+				}
+			}
+        }
+        
+        
     }
 
 
@@ -124,22 +150,14 @@ public class Grid {
 		
     	
     }
-    
+
     /**
      * Victory
      * @return
      */
     public boolean victory(){
-    	/*while (true)
-		{
-    		if ((currentGrid.car(new Coordinate(2, 5)).getVehicle() != null)&& (currentGrid.car(new Coordinate(2, 5)).car.Color == Color.RED))
-			{
-				System.out.println("You win !");
-			}*/
-		return false;
-		
+       	return false;
 	}
-    
     /**
      * Print the grid
      */

@@ -24,7 +24,7 @@ public enum Color {
     /** White color. */
     WHITE("W "),
     /** Type of color to initialized the grid. */
-    ZERO("Z ");
+    ZERO("* ");
 
     /** String initialized empty. */
     private final String color;

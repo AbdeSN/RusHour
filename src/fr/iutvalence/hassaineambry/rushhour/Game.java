@@ -11,77 +11,49 @@ import java.util.Scanner;
  */
 public class Game {
 	private final Grid grid;
-    /** 
+	/** 
 	 * Initialize the game. 
-     * @param level 
-     * @param player2 
+	 * @param level 
+	 * @param player2 
 	 */
 	public Game(Player player, Level level) {
-		// Generating the grid and cars on it
-    	// Player player = new Player("Gelibert");
-		
-		
-		//Add a level in parameter 
 		grid = new Grid(level);
-		//grid.putCar(coordinate, car);
-		System.out.println(grid.toString());
 	}
 
-	public void start() {
-		int turn = 0;
+	public void start() throws NoCarException, CarOutOfTheGridException, CarCollisionException, InvalidCoordinateException {
+		System.out.println(grid.toString());
+		Scanner sc = new Scanner(System.in);
 
+		int turn = 0;
 		while(!grid.victory())
 		{
-			turn+=1;
-			
 			// Get the input from the player
-			Coordinate coord = getPlayerCoordinate();
-	    	System.out.println(coord);
-			
-			Direction direction = getPlayerDirection();
-	    	System.out.println(direction);
-			
-			//grid.moveCars(coord, direction);		
-		}
-		
-		
-		// public getPlayerCoordinate
-	}
+			Coordinate coord = getPlayerCoordinate(sc);
+			System.out.println(coord);
 
-	public Direction getPlayerDirection() {
-		
-		/**
-		 * Asking a direction
-		 */
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Please enter a direction (T,B,L or R):");
-		String str = sc.nextLine();
+			Direction direction = getPlayerDirection(sc);
+			System.out.println(direction);
+
+			grid.moveCars(coord, direction);	
+			
+			System.out.println(grid.toString());
+			turn+=1;
+			System.out.println("Turn : "+turn);
+		}
 		sc.close();
-		
-		try
-		{
-			str = sc.next();
-		} catch (InputMismatchException e)
-		{
-		}
-		switch (str) {
-		case "T":
-			Direction top = new Direction(str); 
-			return top;
-		case "B":
-			Direction bottom = new Direction(str); 
-			return bottom;
-		case "L":
-			Direction left = new Direction(str); 
-			return left;
-		case "R":
-			Direction right = new Direction(str); 
-			return right;
-		}
-		return null;
 	}
 
-	private Coordinate getPlayerCoordinate() {
-		return new Coordinate(0,0);
+
+	/**
+	 * Asking a direction
+	 */
+	public static Direction getPlayerDirection(Scanner sc) {
+		System.out.println("Please enter a direction (U,D,L or R):");
+		return Direction.fromString(sc.nextLine());
+	}
+
+	private static Coordinate getPlayerCoordinate(Scanner sc) {
+		System.out.println("Please enter a the coordinate of the car you want to move : ");
+		return new Coordinate(sc.nextInt(), sc.nextInt());
 	}
 }

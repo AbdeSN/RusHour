@@ -1,9 +1,22 @@
 package fr.iutvalence.hassaineambry.rushhour;
 
-public class Direction {
-	public String direction;
+public enum Direction {
+	TOP("U"),
+	BOTTOM("D"),
+	LEFT("L"),
+	RIGHT("R"),
+	NOTHING("N");
+			
+	private final String direction;
 	
-	public Direction(String str) {
+	private Direction(String str) {
 		this.direction = str;
+	}
+	
+	public static Direction fromString(String str) {
+		for (Direction direction : Direction.values()) {
+			// TODO Regarder si la string correspond avec equal
+		}
+		return NOTHING;
 	}
 }

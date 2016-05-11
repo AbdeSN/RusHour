@@ -1,6 +1,6 @@
 package fr.iutvalence.hassaineambry.rushhour;
 
-import static fr.iutvalence.hassaineambry.rushhour.Color.ZERO;
+import static fr.iutvalence.hassaineambry.rushhour.Color.*;
 import static fr.iutvalence.hassaineambry.rushhour.Orientation.HORIZONTAL;
 
 import java.util.LinkedList;
@@ -31,7 +31,7 @@ public class Grid {
     private final Car[][] grid;
     private final Coordinate exit;
 
-    /** Create the grid. 
+    /** Create the grid and add car on it
      * @param level */
     public Grid(Level level) {
         height = GRID_LINES;
@@ -41,29 +41,43 @@ public class Grid {
         final List<Car> cars = level.createCar();
         exit = level.getExit();
         
-        //Adding cars !!
+        //Generate the grid empty
         for (int i = 0; i < GRID_LINES; i++) {
             for (int j = 0; j < GRID_COLUMNS; j++) {
-            	for (int j2 = 0; j2 < cars.size(); j2++) {
-            		grid[i][j] = cars.get(j2);
-				}
                 grid[i][j] = DEFAULT_CELL;
             }
         }
         
+        //Add cars on it
         for (Car car : cars) {
 			Coordinate origin = car.coordinate();
 			Orientation orientation = car.orientation();
 			int size = car.size();
-			
+
 			if (orientation == Orientation.HORIZONTAL) {
 				for (int i = origin.getX(); i < origin.getX() + size; i++) {
-					//Si taille egale 2 alors afficher a coordonée et coordonée + 1 
+					if (size == 3) {
+						putCar(car.coordinate().getX(), car.coordinate().getY(), car);
+						putCar(car.coordinate().getX(), car.coordinate().getY() + 1, car);
+						putCar(car.coordinate().getX(), car.coordinate().getY() + 2, car);
+					}
+					else {
+						putCar(car.coordinate().getX(), car.coordinate().getY(), car);
+						putCar(car.coordinate().getX(), car.coordinate().getY() + 1, car);
+					}
 				}
 			}
 			else {
 				for (int j = origin.getY(); j < origin.getY() + size; j++) {
-					
+					if (size == 3) {
+						putCar(car.coordinate().getX(), car.coordinate().getY(), car);
+						putCar(car.coordinate().getX() + 1, car.coordinate().getY(), car);
+						putCar(car.coordinate().getX() + 2, car.coordinate().getY(), car);
+					}
+					else {
+						putCar(car.coordinate().getX(), car.coordinate().getY(), car);
+						putCar(car.coordinate().getX() + 1, car.coordinate().getY(), car);
+					}
 				}
 			}
         }
@@ -71,7 +85,16 @@ public class Grid {
         
     }
 
+    /**
+     * Put cars on the grid
+     * @param coordinate 
+     * @param car
+     */
+    public void putCar(int x, int y, Car car) {
+    	this.grid[x][y] = car;
 
+	}
+    
 	/** Get the number of columns. */
     public int width() {
         return this.width;
@@ -92,16 +115,8 @@ public class Grid {
  		return this.grid[coordinate.getX()][coordinate.getY()];
  	}
 
-    // XXX
-    /**
-     * Put cars on the grid
-     * @param coordinate 
-     * @param car
-     */
-    public void putCar(Coordinate coordinate, Car car) {
-    	// XXX
-    	this.grid[coordinate.getX()][coordinate.getY()] = null;
-	}
+
+ 
      
     /**
      * Move the car from a position to an other

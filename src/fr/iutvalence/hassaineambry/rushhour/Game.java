@@ -1,6 +1,5 @@
 package fr.iutvalence.hassaineambry.rushhour;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -14,7 +13,7 @@ public class Game {
 	/** 
 	 * Initialize the game. 
 	 * @param level 
-	 * @param player2 
+	 * @param player
 	 */
 	public Game(Player player, Level level) {
 		grid = new Grid(level);
@@ -28,6 +27,9 @@ public class Game {
 		while(!grid.victory())
 		{
 			// Get the input from the player
+			turn+=1;
+			System.out.println("Turn : "+turn);
+			
 			Coordinate coord = getPlayerCoordinate(sc);
 			System.out.println(coord);
 
@@ -35,10 +37,8 @@ public class Game {
 			System.out.println(direction);
 
 			grid.moveCars(coord, direction);	
-			
 			System.out.println(grid.toString());
-			turn+=1;
-			System.out.println("Turn : "+turn);
+			
 		}
 		sc.close();
 	}
@@ -46,12 +46,17 @@ public class Game {
 
 	/**
 	 * Asking a direction
+	 * @param sc, the input scanned
 	 */
 	public static Direction getPlayerDirection(Scanner sc) {
 		System.out.println("Please enter a direction (U,D,L or R):");
 		return Direction.fromString(sc.nextLine());
 	}
 
+	/**
+	 * Asking the car we want to move
+	 * @param sc, the input scanned
+	 */
 	private static Coordinate getPlayerCoordinate(Scanner sc) {
 		System.out.println("Please enter a the coordinate of the car you want to move : ");
 		return new Coordinate(sc.nextInt(), sc.nextInt());

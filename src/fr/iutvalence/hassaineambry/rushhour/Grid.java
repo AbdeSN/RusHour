@@ -176,16 +176,25 @@ public class Grid {
     /**
      * Print the grid
      */
-    @Override
+//    public String toPrint (){
+//    	StringBuilder line = new StringBuilder (GRID_LINES + GRID_COLUMNS +1);
+//    	return line.toPrint();
+//    }
     public String toString() {
     	
         StringBuilder represente = new StringBuilder (GRID_LINES + GRID_COLUMNS +1);
+        represente.append("[ ] [0] [1] [2] [3] [4] [5]");
+        represente.append(System.getProperty("line.separator"));
+        
         for (int i = 0; i < GRID_LINES; i++) {
+        	represente.append("["+i+"] ");
             for (int j = 0; j < GRID_COLUMNS; j++) {
                 represente.append(grid [i][j]);
             }
             represente.append(System.getProperty("line.separator"));
         }
+        
         return represente.toString();
     }
+    
 }

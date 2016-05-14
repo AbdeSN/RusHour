@@ -1,8 +1,8 @@
 package fr.iutvalence.hassaineambry.rushhour;
 
 public enum Direction {
-	TOP("U"),
-	BOTTOM("D"),
+	UP("U"),
+	DOWN("D"),
 	LEFT("L"),
 	RIGHT("R"),
 	NOTHING("N");

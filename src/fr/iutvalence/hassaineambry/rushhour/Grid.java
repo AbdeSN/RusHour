@@ -6,6 +6,14 @@ import static fr.iutvalence.hassaineambry.rushhour.Orientation.HORIZONTAL;
 import java.util.LinkedList;
 import java.util.List;
 
+import com.sun.xml.internal.bind.v2.TODO;
+
+import fr.iutvalence.hassaineambry.rushhour.exceptions.CarCollisionException;
+import fr.iutvalence.hassaineambry.rushhour.exceptions.CarOutOfTheGridException;
+import fr.iutvalence.hassaineambry.rushhour.exceptions.InvalidCoordinateException;
+import fr.iutvalence.hassaineambry.rushhour.exceptions.MoveForbidenException;
+import fr.iutvalence.hassaineambry.rushhour.exceptions.NoCarException;
+
 
 /**
  * Generate the grid.
@@ -57,26 +65,28 @@ public class Grid {
 			if (orientation == Orientation.HORIZONTAL) {
 				for (int i = origin.getX(); i < origin.getX() + size; i++) {
 					if (size == 3) {
-						putCar(car.coordinate().getX(), car.coordinate().getY(), car);
-						putCar(car.coordinate().getX(), car.coordinate().getY() + 1, car);
-						putCar(car.coordinate().getX(), car.coordinate().getY() + 2, car);
+						for (int j = 0; j < 3; j++) {
+							putCar(car.coordinate().getX(), car.coordinate().getY() + j, car);
+						}
 					}
 					else {
-						putCar(car.coordinate().getX(), car.coordinate().getY(), car);
-						putCar(car.coordinate().getX(), car.coordinate().getY() + 1, car);
+						for (int j = 0; j < 2; j++) {
+							putCar(car.coordinate().getX(), car.coordinate().getY() + j, car);
+						}
 					}
 				}
 			}
 			else {
 				for (int j = origin.getY(); j < origin.getY() + size; j++) {
 					if (size == 3) {
-						putCar(car.coordinate().getX(), car.coordinate().getY(), car);
-						putCar(car.coordinate().getX() + 1, car.coordinate().getY(), car);
-						putCar(car.coordinate().getX() + 2, car.coordinate().getY(), car);
+						for (int k = 0; k < 3; k++) {
+							putCar(car.coordinate().getX() + k, car.coordinate().getY(), car);
+						}
 					}
 					else {
-						putCar(car.coordinate().getX(), car.coordinate().getY(), car);
-						putCar(car.coordinate().getX() + 1, car.coordinate().getY(), car);
+						for (int k = 0; k < 2; k++) {
+							putCar(car.coordinate().getX() + k, car.coordinate().getY(), car);
+						}
 					}
 				}
 			}
@@ -105,9 +115,9 @@ public class Grid {
         return this.height;
     }
   
-    // XXX
+  
     /**
-    * Get the grid coordinates
+    * Get the car coordinates on the grid
     * @param coordinate
     */ 
     public Car getGridCoord(Coordinate coordinate)
@@ -115,53 +125,89 @@ public class Grid {
  		return this.grid[coordinate.getX()][coordinate.getY()];
  	}
 
-
- 
-     
     /**
      * Move the car from a position to an other
      * 
      * @param initialCoords
-     * @param numberOfMovements
+     * @param direction
      * @throws CarOutOfTheGridException
      * @throws CarCollisionException
      * @throws InvalidCoordinateException
      */
-    public void moveCars(Coordinate initialCoords, Direction numberOfMovements) throws NoCarException, CarOutOfTheGridException, CarCollisionException, InvalidCoordinateException 
+    public void moveCars(Coordinate initialCoords, Direction direction) throws NoCarException, CarOutOfTheGridException, CarCollisionException, InvalidCoordinateException, MoveForbidenException 
     {
-    	if (initialCoords.getX() > 5 || initialCoords.getY() > 5 || initialCoords.getX() < 0 || initialCoords.getX() < 0) 
+    	if (initialCoords.getX() > 5 || initialCoords.getY() > 5 || initialCoords.getX() < 0 || initialCoords.getY() < 0) 
     		throw new InvalidCoordinateException("The coordinate must be between 0 et 5");
     	
     	Car car = getGridCoord(initialCoords);
-    	
+    	Coordinate finalCoords = new Coordinate(0,0);
     	/** We're looking for a car */
     	if (car == DEFAULT_CELL) throw new NoCarException ("Oops, no car here !");
     	
-  
-    		/** We watch in what position is the car */
+    		/** We watch the position of the car */
     	    if(car.orientation() == Orientation.HORIZONTAL) 
     	    {
-    	    	
-    	    	if (car.coordinate().getX() + 1 >= GRID_COLUMNS) throw new CarOutOfTheGridException("Where are you going ? You're out of the map !");
-    	    	
-    	    	if (car.coordinate().getX() == -1) throw new CarCollisionException("There is a car here !");
-    	    	
-    	    	for (int i = 0; i < grid.length; i++) {
-    				Coordinate newCoordinates = new Coordinate(car.coordinate().getX(), car.coordinate().getY());
-    				//Return newCoordinates 
-    			}
+	    		/** We chose wich direction is available for the car */
+    	    	if (direction == Direction.UP || direction == Direction.DOWN) 
+    	    		throw new MoveForbidenException("This movement is forbiden");
+    	    	else {
+        	    	/** We watch if there is no car at coordinates creating by the direction*/
+    	    		if (direction == Direction.LEFT) {
+    	    	    	/** We watch if the car will go out of the grid with his new coordinates */
+    	    			if (car.coordinate().getY() - 1 < 0) 
+    	    				throw new CarOutOfTheGridException("Where are you going ? You're out of the map !");
+    	    				/** We watch if the car will go against another car */
+    						if (car.coordinate().getY() - 1 == DEFAULT_CELL.coordinate().getY()) 
+    							throw new CarCollisionException("There is a car here !");
+    						else {
+    		    				finalCoords = new Coordinate(initialCoords.getX(), initialCoords.getY() - 1);
+    						}
+					}
+    	    		else {
+    	    			/** We watch if the car will go out of the grid with his new coordinates */
+    	    			if (car.coordinate().getY() + car.size() >= GRID_LINES) 
+    	    				throw new CarOutOfTheGridException("Where are you going ? You're out of the map !");
+    	    				/** We watch if the car will go against another car */
+    						if (car.coordinate().getY() + car.size() == DEFAULT_CELL.coordinate().getY()) 
+    							throw new CarCollisionException("There is a car here !");
+    						else {
+    		    				finalCoords = new Coordinate(initialCoords.getX(), initialCoords.getY() + 1);
+    						}
+    	    		}
+				}
     	    }
     	    else
     	    {
-    	    	if (car.coordinate().getX() + 1 >= GRID_LINES) throw new CarOutOfTheGridException("Where are you going ? You're out of the map !");
-    	    	
-    	    	if (car.coordinate().getX() == -1) throw new CarCollisionException("There is a car here !");
-    	    	
-    	    	for (int i = 0; i < grid.length; i++) {
-    				Coordinate newCoordinates = new Coordinate(car.coordinate().getX(), car.coordinate().getY());
-    				//Return newCoordinates
-    			}
+    	    	/** We chose wich direction is available for the car */
+    	    	if (direction == Direction.RIGHT || direction == Direction.LEFT) 
+    	    		throw new MoveForbidenException("This movement is forbiden");
+    	    	else {
+        	    	/** We watch if there is no car at coordinates creating by the direction*/
+    	    		if (direction == Direction.UP) {
+    	    	    	/** We watch if the car will go out of the grid with his new coordinates */
+    	    			if (car.coordinate().getX() - 1 < 0) 
+    	    				throw new CarOutOfTheGridException("Where are you going ? You're out of the map !");
+    	    				/** We watch if the car will go against another car */
+    						if (car.coordinate().getX() - 1 == DEFAULT_CELL.coordinate().getX()) 
+    							throw new CarCollisionException("There is a car here !");
+    						else {
+    		    				finalCoords = new Coordinate(initialCoords.getX() - 1, initialCoords.getY());
+    						}
+					}
+    	    		else {
+    	    			/** We watch if the car will go out of the grid with his new coordinates */
+    	    			if (car.coordinate().getX() + car.size() >= GRID_COLUMNS) 
+    	    				throw new CarOutOfTheGridException("Where are you going ? You're out of the map !");
+    	    				/** We watch if the car will go against another car */
+    						if (car.coordinate().getX() + car.size() == DEFAULT_CELL.coordinate().getX()) 
+    							throw new CarCollisionException("There is a car here !");
+    						else {
+    		    				finalCoords = new Coordinate(initialCoords.getX() + 1, initialCoords.getY());
+    						}
+    	    		}
+				}
     	    }
+			System.out.println(finalCoords);;
 		
     	
     }
@@ -176,16 +222,25 @@ public class Grid {
     /**
      * Print the grid
      */
-    @Override
+//    public String toPrint (){
+//    	StringBuilder line = new StringBuilder (GRID_LINES + GRID_COLUMNS +1);
+//    	return line.toPrint();
+//    }
     public String toString() {
     	
         StringBuilder represente = new StringBuilder (GRID_LINES + GRID_COLUMNS +1);
+        represente.append("[\\] [0] [1] [2] [3] [4] [5]");
+        represente.append(System.getProperty("line.separator"));
+        
         for (int i = 0; i < GRID_LINES; i++) {
+        	represente.append("["+i+"] ");
             for (int j = 0; j < GRID_COLUMNS; j++) {
                 represente.append(grid [i][j]);
             }
             represente.append(System.getProperty("line.separator"));
         }
+        
         return represente.toString();
     }
+    
 }

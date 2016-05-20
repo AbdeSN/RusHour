@@ -2,6 +2,14 @@ package fr.iutvalence.hassaineambry.rushhour;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import fr.iutvalence.hassaineambry.rushhour.exceptions.CarCollisionException;
+import fr.iutvalence.hassaineambry.rushhour.exceptions.CarOutOfTheGridException;
+import fr.iutvalence.hassaineambry.rushhour.exceptions.InvalidCoordinateException;
+import fr.iutvalence.hassaineambry.rushhour.exceptions.MoveForbidenException;
+import fr.iutvalence.hassaineambry.rushhour.exceptions.NoCarException;
+import fr.iutvalence.hassaineambry.rushhour.levels.Level1;
+import fr.iutvalence.hassaineambry.rushhour.levels.Level2;
 /**
  * TODO.
  *
@@ -19,7 +27,7 @@ public class Rushhour {
      * @throws CarOutOfTheGridException 
      * @throws NoCarException 
      */
-    public static void main(final String[] args) throws NoCarException, CarOutOfTheGridException, CarCollisionException, InvalidCoordinateException {
+    public static void main(final String[] args) throws NoCarException, CarOutOfTheGridException, CarCollisionException, InvalidCoordinateException, MoveForbidenException {
         /**
          * Asking a name
          */

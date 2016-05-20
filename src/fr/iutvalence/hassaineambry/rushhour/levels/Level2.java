@@ -1,10 +1,14 @@
-package fr.iutvalence.hassaineambry.rushhour;
+package fr.iutvalence.hassaineambry.rushhour.levels;
 
 import static fr.iutvalence.hassaineambry.rushhour.Color.*;
 import static fr.iutvalence.hassaineambry.rushhour.Orientation.*;
 
 import java.util.LinkedList;
 import java.util.List;
+
+import fr.iutvalence.hassaineambry.rushhour.Car;
+import fr.iutvalence.hassaineambry.rushhour.Coordinate;
+import fr.iutvalence.hassaineambry.rushhour.Level;
 
 /**
 * Create level one by placing car on grid.

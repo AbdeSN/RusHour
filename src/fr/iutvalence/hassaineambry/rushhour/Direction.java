@@ -1,8 +1,8 @@
 package fr.iutvalence.hassaineambry.rushhour;
 
 public enum Direction {
-	TOP("U"),
-	BOTTOM("D"),
+	UP("U"),
+	DOWN("D"),
 	LEFT("L"),
 	RIGHT("R"),
 	NOTHING("N");
@@ -14,9 +14,17 @@ public enum Direction {
 	}
 	
 	public static Direction fromString(String str) {
-		for (Direction direction : Direction.values()) {
-			// TODO Regarder si la string correspond avec equal
+		switch (str) {
+		case "U":
+			return UP;
+		case "D":
+			return DOWN;
+		case "L":
+			return LEFT;
+		case "R":
+			return RIGHT;
+		default:
+			return NOTHING;
 		}
-		return NOTHING;
 	}
 }

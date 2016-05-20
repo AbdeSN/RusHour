@@ -1,4 +1,4 @@
-package fr.iutvalence.hassaineambry.rushhour;
+package fr.iutvalence.hassaineambry.rushhour.exceptions;
 
 public class InvalidCoordinateException extends Exception { 
 	public InvalidCoordinateException(String message) {

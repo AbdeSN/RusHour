@@ -2,6 +2,12 @@ package fr.iutvalence.hassaineambry.rushhour;
 
 import java.util.Scanner;
 
+import fr.iutvalence.hassaineambry.rushhour.exceptions.CarCollisionException;
+import fr.iutvalence.hassaineambry.rushhour.exceptions.CarOutOfTheGridException;
+import fr.iutvalence.hassaineambry.rushhour.exceptions.InvalidCoordinateException;
+import fr.iutvalence.hassaineambry.rushhour.exceptions.MoveForbidenException;
+import fr.iutvalence.hassaineambry.rushhour.exceptions.NoCarException;
+
 /**
  * Generate the game, with the grid and cars.
  *
@@ -19,7 +25,7 @@ public class Game {
 		grid = new Grid(level);
 	}
 
-	public void start() throws NoCarException, CarOutOfTheGridException, CarCollisionException, InvalidCoordinateException {
+	public void start() throws NoCarException, CarOutOfTheGridException, CarCollisionException, InvalidCoordinateException, MoveForbidenException {
 		System.out.println(grid.toString());
 		Scanner sc = new Scanner(System.in);
 
@@ -32,11 +38,13 @@ public class Game {
 			
 			Coordinate coord = getPlayerCoordinate(sc);
 			System.out.println(coord);
+			sc.nextLine();
 
 			Direction direction = getPlayerDirection(sc);
 			System.out.println(direction);
 
-			grid.moveCars(coord, direction);	
+			grid.moveCars(coord, direction);
+			
 			System.out.println(grid.toString());
 			
 		}
@@ -58,7 +66,7 @@ public class Game {
 	 * @param sc, the input scanned
 	 */
 	private static Coordinate getPlayerCoordinate(Scanner sc) {
-		System.out.println("Please enter a the coordinate of the car you want to move : ");
+		System.out.println("Please enter the coordinate of the car you want to move : ");
 		return new Coordinate(sc.nextInt(), sc.nextInt());
 	}
 }

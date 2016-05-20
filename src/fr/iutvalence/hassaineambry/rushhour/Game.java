@@ -50,6 +50,15 @@ public class Game {
 		}
 		sc.close();
 	}
+	/**
+	 * Asking the car we want to move
+	 * @param sc, the input scanned
+	 */
+	
+	private static Coordinate getPlayerCoordinate(Scanner sc) {
+		System.out.println("Please enter a the coordinate of the car you want to move : (the line number, the column number)");
+		return new Coordinate(sc.nextInt(), sc.nextInt());
+	}
 
 
 	/**
@@ -59,14 +68,5 @@ public class Game {
 	public static Direction getPlayerDirection(Scanner sc) {
 		System.out.println("Please enter a direction (U,D,L or R):");
 		return Direction.fromString(sc.nextLine());
-	}
-
-	/**
-	 * Asking the car we want to move
-	 * @param sc, the input scanned
-	 */
-	private static Coordinate getPlayerCoordinate(Scanner sc) {
-		System.out.println("Please enter the coordinate of the car you want to move : ");
-		return new Coordinate(sc.nextInt(), sc.nextInt());
 	}
 }

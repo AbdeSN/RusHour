@@ -40,7 +40,9 @@ public class Grid {
     private final Coordinate exit;
 
     /** Create the grid and add car on it
-     * @param level */
+     * @param level 
+     * 
+     */
     public Grid(Level level) {
         height = GRID_LINES;
         width = GRID_COLUMNS;
@@ -126,7 +128,7 @@ public class Grid {
  	}
 
     /**
-     * Move the car from a position to an other
+     * Move the car from a position to an other.
      * 
      * @param initialCoords
      * @param direction
@@ -142,7 +144,7 @@ public class Grid {
     	Car car = getGridCoord(initialCoords);
     	Coordinate finalCoords = new Coordinate(0,0);
     	/** We're looking for a car */
-    	if (car == DEFAULT_CELL) throw new NoCarException ("Oops, no car here !");
+    	if (car.equals(DEFAULT_CELL)) throw new NoCarException ("Oops, no car here !");
     	
     		/** We watch the position of the car */
     	    if(car.orientation() == Orientation.HORIZONTAL) 
@@ -229,7 +231,8 @@ public class Grid {
     public String toString() {
     	
         StringBuilder represente = new StringBuilder (GRID_LINES + GRID_COLUMNS +1);
-        represente.append("[\\] [0] [1] [2] [3] [4] [5]");
+
+        represente.append("[ ] [0] [1] [2] [3] [4] [5]");
         represente.append(System.getProperty("line.separator"));
         
         for (int i = 0; i < GRID_LINES; i++) {

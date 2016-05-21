@@ -56,15 +56,15 @@ public class Rushhour {
 		case 1:
     		Level level = new Level1();
     		Game playGame = new Game(player, level);
-    		playGame.start();
+    		playGame.start(level);
 			break;
-//		case 2: 
-//			Level level2 = new Level2();
-//			Game playGame2 = new Game(player, level2);
-//    		playGame2.start();
-//			break;
-//		default:
-//			break;
+		case 2: 
+			Level level2 = new Level2();
+			Game playGame2 = new Game(player, level2);
+    		playGame2.start(level2);
+			break;
+		default:
+			break;
 		}
     	sc.close();
 

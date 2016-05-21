@@ -3,10 +3,7 @@ package fr.iutvalence.hassaineambry.rushhour;
 import static fr.iutvalence.hassaineambry.rushhour.Color.*;
 import static fr.iutvalence.hassaineambry.rushhour.Orientation.HORIZONTAL;
 
-import java.util.LinkedList;
 import java.util.List;
-
-import com.sun.xml.internal.bind.v2.TODO;
 
 import fr.iutvalence.hassaineambry.rushhour.exceptions.CarCollisionException;
 import fr.iutvalence.hassaineambry.rushhour.exceptions.CarOutOfTheGridException;
@@ -37,7 +34,6 @@ public class Grid {
     private final int     width;
     /** Board fill of car. */
     private final Car[][] grid;
-    private final Coordinate exit;
 
     /** Create the grid and add car on it
      * @param level 
@@ -49,7 +45,6 @@ public class Grid {
         grid = new Car[GRID_LINES][GRID_COLUMNS];
 
         final List<Car> cars = level.createCar();
-        exit = level.getExit();
         
         //Generate the grid empty
         for (int i = 0; i < GRID_LINES; i++) {
@@ -93,8 +88,93 @@ public class Grid {
 				}
 			}
         }
+    }
+    
+    public Grid(Level level, Car newCar) {
+        height = GRID_LINES;
+        width = GRID_COLUMNS;
+        grid = new Car[GRID_LINES][GRID_COLUMNS];
+
+        final List<Car> cars = level.createCar();
         
+        //Generate the grid empty
+        for (int i = 0; i < GRID_LINES; i++) {
+            for (int j = 0; j < GRID_COLUMNS; j++) {
+                grid[i][j] = DEFAULT_CELL;
+            }
+        }
         
+        //Add cars on it
+        for (Car car : cars) {
+			Coordinate origin = car.coordinate();
+			Orientation orientation = car.orientation();
+			int size = car.size();
+
+			for (int indexL = 0; indexL < GRID_LINES; indexL++) {
+	            for (int indexC = 0; indexC < GRID_COLUMNS; indexC++) {
+	            	if (car.color() == newCar.color()) {
+		            	if (orientation == Orientation.HORIZONTAL) {
+		    				for (int i = origin.getX(); i < origin.getX() + size; i++) {
+		    					if (size == 3) {
+		    						for (int j = 0; j < 3; j++) {
+		    							putCar(newCar.coordinate().getX(), newCar.coordinate().getY() + j, newCar);
+		    						}
+		    					}
+		    					else {
+		    						for (int j = 0; j < 2; j++) {
+		    							putCar(newCar.coordinate().getX(), newCar.coordinate().getY() + j, newCar);
+		    						}
+		    					}
+		    				}
+		    			}
+		    			else {
+		    				for (int j = origin.getY(); j < origin.getY() + size; j++) {
+		    					if (size == 3) {
+		    						for (int k = 0; k < 3; k++) {
+		    							putCar(newCar.coordinate().getX() + k, newCar.coordinate().getY(), newCar);
+		    						}
+		    					}
+		    					else {
+		    						for (int k = 0; k < 2; k++) {
+		    							putCar(newCar.coordinate().getX() + k, newCar.coordinate().getY(), newCar);
+		    						}
+		    					}
+		    				}
+		    			}
+	            	}
+	            	else {
+	            		if (orientation == Orientation.HORIZONTAL) {
+	        				for (int i = origin.getX(); i < origin.getX() + size; i++) {
+	        					if (size == 3) {
+	        						for (int j = 0; j < 3; j++) {
+	        							putCar(car.coordinate().getX(), car.coordinate().getY() + j, car);
+	        						}
+	        					}
+	        					else {
+	        						for (int j = 0; j < 2; j++) {
+	        							putCar(car.coordinate().getX(), car.coordinate().getY() + j, car);
+	        						}
+	        					}
+	        				}
+	        			}
+	        			else {
+	        				for (int j = origin.getY(); j < origin.getY() + size; j++) {
+	        					if (size == 3) {
+	        						for (int k = 0; k < 3; k++) {
+	        							putCar(car.coordinate().getX() + k, car.coordinate().getY(), car);
+	        						}
+	        					}
+	        					else {
+	        						for (int k = 0; k < 2; k++) {
+	        							putCar(car.coordinate().getX() + k, car.coordinate().getY(), car);
+	        						}
+	        					}
+	        				}
+	        			}
+					}
+	            }
+			}
+        }
     }
 
     /**
@@ -136,7 +216,7 @@ public class Grid {
      * @throws CarCollisionException
      * @throws InvalidCoordinateException
      */
-    public void moveCars(Coordinate initialCoords, Direction direction) throws NoCarException, CarOutOfTheGridException, CarCollisionException, InvalidCoordinateException, MoveForbidenException 
+    public Car moveCars(Coordinate initialCoords, Direction direction) throws NoCarException, CarOutOfTheGridException, CarCollisionException, InvalidCoordinateException, MoveForbidenException 
     {
     	if (initialCoords.getX() > 5 || initialCoords.getY() > 5 || initialCoords.getX() < 0 || initialCoords.getY() < 0) 
     		throw new InvalidCoordinateException("The coordinate must be between 0 et 5");
@@ -209,7 +289,8 @@ public class Grid {
     	    		}
 				}
     	    }
-			System.out.println(finalCoords);;
+			System.out.println(finalCoords);
+			return new Car(finalCoords, car.orientation(), car.size(), car.color());
 		
     	
     }
@@ -224,10 +305,7 @@ public class Grid {
     /**
      * Print the grid
      */
-//    public String toPrint (){
-//    	StringBuilder line = new StringBuilder (GRID_LINES + GRID_COLUMNS +1);
-//    	return line.toPrint();
-//    }
+
     public String toString() {
     	
         StringBuilder represente = new StringBuilder (GRID_LINES + GRID_COLUMNS +1);

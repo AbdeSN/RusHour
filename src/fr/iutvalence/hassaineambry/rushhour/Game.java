@@ -15,7 +15,7 @@ import fr.iutvalence.hassaineambry.rushhour.exceptions.NoCarException;
  * @version 1.0
  */
 public class Game {
-	private final Grid grid;
+	private Grid grid;
 	/** 
 	 * Initialize the game. 
 	 * @param level 
@@ -25,7 +25,7 @@ public class Game {
 		grid = new Grid(level);
 	}
 
-	public void start() throws NoCarException, CarOutOfTheGridException, CarCollisionException, InvalidCoordinateException, MoveForbidenException {
+	public void start(Level level) throws NoCarException, CarOutOfTheGridException, CarCollisionException, InvalidCoordinateException, MoveForbidenException {
 		System.out.println(grid.toString());
 		Scanner sc = new Scanner(System.in);
 
@@ -42,8 +42,9 @@ public class Game {
 
 			Direction direction = getPlayerDirection(sc);
 			System.out.println(direction);
+			
 
-			grid.moveCars(coord, direction);
+			grid = new Grid(level, grid.moveCars(coord, direction));
 			
 			System.out.println(grid.toString());
 			

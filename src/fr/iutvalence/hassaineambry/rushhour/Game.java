@@ -32,6 +32,7 @@ public class Game {
 		int turn = 0;
 		while(!grid.victory())
 		{
+			
 			// Get the input from the player
 			turn+=1;
 			System.out.println("Turn : "+turn);
@@ -42,9 +43,10 @@ public class Game {
 
 			Direction direction = getPlayerDirection(sc);
 			System.out.println(direction);
+						
 			
-
 			grid = new Grid(level, grid.moveCars(coord, direction));
+			
 			
 			System.out.println(grid.toString());
 			

@@ -48,5 +48,3 @@ public class Level2 implements Level
 		return exitCoordinate;
     }
 }
-
-

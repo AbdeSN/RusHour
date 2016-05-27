@@ -28,7 +28,7 @@ public class Coordinate {
 
 	@Override
 	public String toString() {
-		return "Inital Coordinates : [Line=" + x + ", Column=" + y + "]";
+		return "Currents Coordinates : [Line=" + x + ", Column=" + y + "]";
 	}
     
 	

@@ -1,5 +1,4 @@
 package fr.iutvalence.hassaineambry.rushhour;
-
 /**
  * Enumeration of the two orientations available (horizontal / vertical).
  *
@@ -22,4 +21,11 @@ public enum Orientation {
     public String toString() {
         return orientation;
     }
+
+//	public boolean isCompatible(Direction direction) {
+//		return (orientation == HORIZONTAL && direction == direction.UP) ||
+//				(orientation == HORIZONTAL && direction == direction.DOWN) ||
+//				(orientation == VERTICAL && direction == direction.LEFT) ||
+//				(orientation == VERTICAL && direction == direction.RIGHT);
+//	}
 }
